@@ -475,12 +475,17 @@ class DCO_CA extends DCO_CA_Base {
 	 * @param array      $comment Comment data.
 	 */
 	public function save_attachment( $comment_id, $comment_approved, $comment ) {
+
 		$field_name = $this->get_upload_field_name();
 		if ( ! isset( $_FILES[ $field_name ] ) ) {
 			return;
 		}
 
-		if (!isset($_FILES[ $field_name ]['name']) || empty($_FILES[ $field_name ]['name'])) {
+		if (!isset($_FILES[ $field_name ]['name']) || empty(trim($_FILES[ $field_name ]['name']))) {
+			return;
+		}
+
+		if (isset($_FILES[ $field_name ]['name'][0]) && empty(trim($_FILES[ $field_name ]['name'][0]))) {
 			return;
 		}
 
