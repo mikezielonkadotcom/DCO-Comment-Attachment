@@ -481,7 +481,7 @@ class DCO_CA extends DCO_CA_Base {
 			return;
 		}
 
-		if (!isset($_FILES[ $field_name ]['name']) || empty(trim($_FILES[ $field_name ]['name']))) {
+		if (!isset($_FILES[ $field_name ]['name']) || empty($_FILES[ $field_name ]['name'])) {
 			return;
 		}
 
