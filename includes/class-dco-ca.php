@@ -480,6 +480,10 @@ class DCO_CA extends DCO_CA_Base {
 			return;
 		}
 
+		if (!isset($_FILES[ $field_name ]['name']) || empty($_FILES[ $field_name ]['name'])) {
+			return;
+		}
+
 		// if ( ! function_exists( 'media_handle_upload' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 			require_once ABSPATH . 'wp-admin/includes/file.php';
