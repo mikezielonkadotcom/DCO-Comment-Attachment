@@ -9,7 +9,7 @@
  *
  * @since 1.0.0
  *
- * Plugin Name: DCO Comment Attachment
+ * Plugin Name: DCO Comment Attachment - Custom
  * Plugin URI: https://denisco.pro/dco-comment-attachment/
  * Description: Allows your visitors to attach files with their comments
  * Version: 2.4.0
@@ -25,6 +25,21 @@ define( 'DCO_CA_URL', plugin_dir_url( __FILE__ ) );
 define( 'DCO_CA_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DCO_CA_BASENAME', plugin_basename( __FILE__ ) );
 define( 'DCO_CA_VERSION', '2.4.0' );
+
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/mikezielonkadotcom/DCO-Comment-Attachment',
+    __FILE__,
+    'DCO-Comment-Attachment'
+);
+
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+
+//Optional: If you're using a private repository, specify the access token like this:
+$myUpdateChecker->setAuthentication('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');
 
 require_once DCO_CA_PATH . 'includes/functions.php';
 
